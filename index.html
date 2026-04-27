@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening Ownly Food Delivery...</title>
+    <script>
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var searchQuery = encodeURIComponent("MJ NATI STYLE");
+
+            // Android Detection
+            if (/android/i.test(userAgent)) {
+                var androidIntent = "intent://search?q=" + searchQuery + "#Intent;scheme=ownly;package=com.ownly.customer;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.ownly.customer;end;";
+                window.location.href = androidIntent;
+            } 
+            // iOS Detection
+            else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                var iosScheme = "ownly://search?q=" + searchQuery;
+                var iosStoreUrl = "https://apps.apple.com/in/app/ownly-food-delivery/id6747476494";
+                
+                window.location.href = iosScheme;
+                
+                // Fallback to App Store if app is not installed
+                setTimeout(function() {
+                    window.location.href = iosStoreUrl;
+                }, 2000);
+            } 
+            // Desktop/Other Fallback
+            else {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.ownly.customer";
+            }
+        };
+    </script>
+</head>
+<body>
+    <h2 style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+        Redirecting to MJ NATI STYLE on Ownly...
+    </h2>
+</body>
+</html>
